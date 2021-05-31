@@ -1,0 +1,64 @@
+
+<div id="employees-header">
+  <h1 id="tableLabel">Employees</h1>
+  <button (click)="addEmployee()">+ Add new</button>
+</div>
+
+<p *ngIf="!employees"><em>Loading...</em></p>
+
+<div id="employees-content" *ngIf="employees">
+  <div id="employees-buttons" aria-labelledby="tableLabel">
+    <button *ngFor="let employee of employees" (click)="setActiveEmployee(employee)" [class.active]="employee === activeEmployee">
+      <div>
+        <h6>
+          {{ employee.fullName }}
+        </h6>
+        <p>
+          {{ jobs[employee.position]}}
+        </p>
+      </div>
+      <div class="image-container" (click)="removeEmployee(employee)">
+        <img src="../../assets/images/trash-alt-regular.svg"/>
+      </div>
+    </button>
+  </div>
+
+  <div *ngFor="let employee of employees" class="employee-details" [class.active]="employee === activeEmployee">
+    <form class="container" (ngSubmit)="onSubmit()">
+      <h2>
+        Personal Information
+      </h2>
+      <div class="name-field row">
+        <h6 class="col-4">
+          Full Name
+        </h6>
+        <input type="text" class="col-8" [(ngModel)]="employee.fullName" name="fullname"/>
+      </div>
+      <div class="address-field row">
+        <h6 class="col-4">
+          Address
+        </h6>
+        <input type="text" class="col-8" [(ngModel)]="employee.address" name="address"/>
+      </div>
+      <div class="phone-field row">
+        <h6 class="col-4">
+          Phone Number
+        </h6>
+        <input type="tel" class="col-8" [(ngModel)]="employee.phoneNumber" name="phonenumber"/>
+      </div>
+      <div class="position-field row">
+        <h6 class="col-4">
+          Position
+        </h6>
+        <select name="positions" class="col-8" (change)="onSelected($event, employee)">
+          <option *ngFor="let position of jobs" [selected]="position === jobs[employee.position]">
+            {{ position }}
+          </option>
+        </select>
+      </div>
+      <div class="submit-field row">
+        <input type="submit" value="Submit"/>
+      </div>
+    </form>
+  </div>
+</div>
