@@ -1,5 +1,7 @@
 ﻿# Employee List
 
+Employee List is built using .NET Core and Angular. This application displays a list of all Employees and allows the user to add/edit/delete employee information.
+
 ## Instructions
 
 1. Open Visual Studio and go to "File > Open > Project/Solution"
@@ -13,6 +15,6 @@ This project does not touch on any databases, but it instead just updates the fi
 
 ## Reflection
 
-Although the project was meant to be Front End, there were a lot of times where I had to tinker with the Back End in order to fulfill the Add/Update/Delete requirements. The only .NET files that I touched on were Employee.cs and EmployeeController.cs.
+Although the project was meant to be Front End, since the project requires me to build it using Visual Studio, I presumed that I needed to implement .NET Core as well to have some Full Stack functionalities. There were a lot of times where I had to tinker with the Back End in order to fulfill the Add/Update/Delete requirements. The only .NET files that I touched on were Employee.cs and EmployeeController.cs.
 
-There are something wher I have to properly implement, like hitting the submit button takes all the changes made in the forms (regardless of whether it's the one on the screen) and POSTs them.
+There are somethings where I have to properly implement, like hitting the submit button takes all the changes made in the forms (regardless of whether it's the one on the screen) and POSTs them.
